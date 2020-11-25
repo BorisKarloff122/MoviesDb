@@ -1,0 +1,16 @@
+
+<div class="items">
+<div (click)="modal.onSelect($event);" class="item" *ngFor="let item of cardList">
+    <div class="text">
+      <div class="name">{{item.title}}</div>
+      <div class="date">{{item.release_date}}</div>
+    </div>
+    <div *ngIf="item.poster_path !== null; else dummy" class="img_block" >
+      <img  src="http://image.tmdb.org/t/p/w342{{this.item.poster_path}}">
+    </div>
+  </div>
+<ng-template #dummy>
+  <img src="assets/img/dummy.jpg">
+</ng-template>
+
+</div>

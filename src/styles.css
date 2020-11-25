@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header, footer {
+  background-color: gray;
+}
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: #eee;
+  color: #6e6e6e;
+  line-height: normal;
+  transition-duration: 0.4s;
+  -webkit-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition-duration: 0.4s;
+}

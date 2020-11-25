@@ -1,0 +1,19 @@
+footer {
+  margin-top: 100px;
+  height: 200px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+footer .container{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer .logo img{
+  max-width:120px;
+}
+footer .logo{
+
+  color:#fff;
+}

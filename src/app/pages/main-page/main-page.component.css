@@ -1,0 +1,10 @@
+section.info {
+  padding-top:140px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+}

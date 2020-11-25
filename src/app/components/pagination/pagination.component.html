@@ -1,0 +1,7 @@
+<div class="pagination">
+  <div class="prev" (click)="pagPrev();">Prev</div>
+  <div class="numeric_pagination">
+    <div class="pag_button" *ngFor="let pag of count" (click)="moveToPage($event)">{{pag}}</div>
+  </div>
+  <div class="next" (click)="pagNext();">Next</div>
+</div>
