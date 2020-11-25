@@ -5,6 +5,7 @@
   width: 100%;
 }
 
+/* что эти стили забыли тут? Они должны быть только там где лого в html */
 .logo {
   display: flex;
   align-items: center;

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
@@ -11,6 +13,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { DataGetterService } from './services/data-getter.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +29,10 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // HttpClientModule
   ],
-  providers: [],
+  // providers: [ DataGetterService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

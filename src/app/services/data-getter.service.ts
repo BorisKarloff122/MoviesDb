@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataGetterService {
-  constructor() { }
+
+  constructor(
+    // private http: HttpClient
+  ) { }
 
   RequestInfo(lang: string, query: string, pages: number): void {
+    // TODO использовать HttpClient в урле сформированной хочу видеть шаблонную строку
+
       const request = new XMLHttpRequest();
       const mainThread = 'https://api.themoviedb.org/3';
       const apiKey = '?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c';

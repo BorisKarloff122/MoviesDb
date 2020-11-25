@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
 
+  // TODO чем этот компонент отличаеться от account-header?
+
   constructor() { }
 
   ngOnInit(): void {
