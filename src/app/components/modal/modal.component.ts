@@ -10,7 +10,7 @@ export class ModalComponent implements OnInit {
   constructor() { }
   public row: CardInterface;
   public openModal = false;
-  onSelect(name): void{
+  public onSelect(name): void{
     this.row = JSON.parse(localStorage.getItem('response')).results.find((entry) => entry.title === name);
   }
 

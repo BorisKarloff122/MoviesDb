@@ -7,14 +7,11 @@ import {ModalComponent} from '../modal/modal.component';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit {
+export class CardsComponent{
   public item: CardInterface;
-  public modal = new ModalComponent();
   public cardList = JSON.parse(localStorage.getItem('response')).results;
 
-  constructor() { }
+  constructor(private modal: ModalComponent) { }
 
-  ngOnInit(): void {
-  }
 
 }

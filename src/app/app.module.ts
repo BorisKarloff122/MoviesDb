@@ -12,6 +12,8 @@ import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
+import {DataGetterService} from './services/data-getter.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataGetterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
