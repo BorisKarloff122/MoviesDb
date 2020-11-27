@@ -9,9 +9,10 @@ import {ModalComponent} from '../modal/modal.component';
 })
 export class CardsComponent{
   public item: CardInterface;
+  public modal = new ModalComponent();
   public cardList = JSON.parse(localStorage.getItem('response')).results;
 
-  constructor(private modal: ModalComponent) { }
+  constructor() { }
 
 
 }
