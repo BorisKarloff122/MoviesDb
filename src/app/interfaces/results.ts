@@ -1,8 +1,9 @@
-export interface CardInterface{
+export interface Results {
+  id: number;
+  adult: boolean;
   title: string;
-  original_title?: string;
+  overview: string;
   poster_path: string;
   release_date: string;
-  overview?: string;
   vote_average: number;
 }

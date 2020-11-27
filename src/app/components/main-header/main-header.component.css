@@ -9,6 +9,10 @@ section.info .header {
   width: 100%;
   z-index: 100;
 }
+.info .header{
+  margin:50px auto;
+  text-align: center;
+}
 
 .logo{
   color:#fff;

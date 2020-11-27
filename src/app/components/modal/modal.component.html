@@ -15,14 +15,14 @@
         </div>
       </div>
       <div class="ratings info_block">
-        <div class="sub_info score">Score: <span class="scores"> </span></div>
-        <div class="sub_info ratings">Rating: <span class="rates"> </span></div>
-        <div class="sub_info release">Release Date:<span class="date"> </span></div>
+        <div class="sub_info score">Score: <span class="scores">{{row.vote_average}}</span></div>
+
+        <div class="sub_info release">Release Date:<span class="date">{{row.release_date}}</span></div>
       </div>
       <div class="center movie_text">
-        <div class="header movie_header"></div>
+        <div class="header movie_header">{{row.title}}</div>
         <div class="txt movie_txt">
-
+          {{row.overview}}
         </div>
       </div>
     </div>

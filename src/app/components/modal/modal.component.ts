@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CardInterface} from '../../interfaces/cardInterface';
 
 @Component({
   selector: 'app-modal',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-
   constructor() { }
-  onSelect($event: any): void{
-    const target = event.target as HTMLElement;
-    const parentsName: string = target.parentElement.parentElement.querySelectorAll('.name')[0].innerHTML;
-    const row = JSON.parse(JSON.parse(localStorage.getItem('response'))).results.find((entry) => entry.title === name);
-    document.getElementsByTagName('body')[0].classList.add('fix');
+  public row: CardInterface;
+  public openModal = false;
+  onSelect(name): void{
+    this.row = JSON.parse(localStorage.getItem('response')).results.find((entry) => entry.title === name);
   }
+
   ngOnInit(): void {
+    console.log(this.row);
   }
 
 }

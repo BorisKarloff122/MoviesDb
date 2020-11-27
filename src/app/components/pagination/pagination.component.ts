@@ -2,24 +2,24 @@ import { Component } from '@angular/core';
 import { DataGetterService } from '../../services/data-getter.service';
 import {CardsComponent} from '../cards/cards.component';
 
+
 @Component({
   selector: 'app-pagination',
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent {
-  public dataGetter = new DataGetterService();
   public cards = new CardsComponent();
-  private curentPage: number = JSON.parse(JSON.parse(localStorage.getItem('response'))).page;
-  results = JSON.parse(JSON.parse(localStorage.getItem('response')));
+
+  private curentPage: number = JSON.parse(localStorage.getItem('response')).page;
+  results = JSON.parse(localStorage.getItem('response'));
   count = this.makePagination();
 
-  constructor() {}
+  constructor(private dataGetter: DataGetterService) {}
   moveToPage($event: any): void{
     const targetBlock = event.target as HTMLElement;
     const goToPage = parseInt(targetBlock.innerHTML, 10);
-    this.dataGetter.RequestInfo('&language=ru-RU', '/movie/now_playing', goToPage);
-    this.cards.ngOnInit();
+    this.dataGetter.saves('ru-RU', goToPage);
   }
 
   makePagination(): Array<string> {
@@ -33,7 +33,7 @@ export class PaginationComponent {
 
   pagNext(): void{
     const iterator = this.curentPage + 1;
-    this.dataGetter.RequestInfo('&language=ru-RU', '/movie/now_playing', iterator);
+    this.dataGetter.saves('ru-RU', iterator);
   }
 
   pagPrev(): void{
@@ -44,8 +44,7 @@ export class PaginationComponent {
     else{
       iterator = this.curentPage - 1;
     }
-    this.dataGetter.RequestInfo('&language=ru-RU', '/movie/now_playing', iterator);
-
+    this.dataGetter.saves('ru-RU', iterator);
   }
 
 

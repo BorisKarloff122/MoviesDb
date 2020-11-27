@@ -8,16 +8,13 @@ import {ModalComponent} from '../modal/modal.component';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-
-  public cardList = this.getResults();
+  public item: CardInterface;
   public modal = new ModalComponent();
-  getResults(): Array<CardInterface>{
-    return JSON.parse(JSON.parse(localStorage.getItem('response'))).results as Array<CardInterface>;
-  }
+  public cardList = JSON.parse(localStorage.getItem('response')).results;
+
   constructor() { }
 
   ngOnInit(): void {
-    this.getResults();
   }
 
 }
