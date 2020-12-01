@@ -1,4 +1,4 @@
-export interface CardInterface{
+export interface CardInterface {
   title: string;
   id: number;
   backdrop_path: string;
@@ -8,3 +8,4 @@ export interface CardInterface{
   overview?: string;
   vote_average: number;
 }
+// TODO не вижу полностью описанного интерфейса?

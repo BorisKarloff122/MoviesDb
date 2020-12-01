@@ -10,9 +10,9 @@ import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {DataGetterService} from './services/data-getter.service';
+import { DataGetterService } from './services/data-getter.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
