@@ -1,9 +1,15 @@
 <app-main-header></app-main-header>
 <section class="info">
   <div class="container">
-    <div class="header">Latest Releases: <span class='dates'>{{dates.minimum | date}} - {{dates.maximum | date}}</span></div>
-      <app-cards></app-cards>
-      <app-pagination></app-pagination>
+    <div *ngIf="dates" class="header">Latest Releases: <span class='dates'>{{dates.minimum | date}} - {{dates.maximum | date}}</span></div>
+    <app-cards *ngIf="cardList" [cardList] = cardList></app-cards>
+    <div class="pagination">
+      <mat-paginator [showFirstLastButtons]="true"
+                     [length]="total"
+                     [pageSize]="20"
+                     (page)="changePage($event)">
+      </mat-paginator>
+    </div>
     </div>
 </section>
 <app-footer></app-footer>

@@ -1,6 +1,6 @@
 
 <div class="items">
-<div class="item" *ngFor="let item of cardList">
+<div *ngFor="let item of cardList" class="item" (click)="openModal(item.id)">
     <div class="text">
       <div class="name">{{item.title}}</div>
       <div class="date">{{item.release_date}}</div>
@@ -12,7 +12,9 @@
 <ng-template #dummy>
   <img src="assets/img/dummy.jpg">
 </ng-template>
-
 </div>
-<app-modal *ngIf="modal.openModal"></app-modal>
+<app-modal *ngIf="row"
+           [row] = row ></app-modal>
+
+
 

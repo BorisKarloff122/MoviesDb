@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {DataGetterService} from './services/data-getter.service';
+import {Component} from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

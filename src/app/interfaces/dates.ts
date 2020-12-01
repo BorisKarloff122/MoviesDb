@@ -1,4 +1,4 @@
 export interface Dates{
-  minimum;
-  maximum;
+  minimum: string;
+  maximum: string;
 }

@@ -1,7 +1,10 @@
+import {CardInterface} from './cardInterface';
+import {Dates} from './dates';
+
 export interface Results {
-  dates: string;
+  dates: Dates;
   page: number;
-  results: object;
-  total_pages: string;
-  total_results: string;
+  results: CardInterface[];
+  total_pages: number;
+  total_results: number;
 }
