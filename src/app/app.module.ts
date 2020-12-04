@@ -8,7 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { DataGetterService } from './services/data-getter.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,13 +23,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CardsComponent,
     AccountComponent,
     ModalComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [DataGetterService],
   bootstrap: [AppComponent]

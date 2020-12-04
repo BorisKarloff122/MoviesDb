@@ -4,11 +4,11 @@
     <div *ngIf="dates" class="header">Latest Releases: <span class='dates'>{{dates.minimum | date}} - {{dates.maximum | date}}</span></div>
     <app-cards *ngIf="cardList" [cardList] = cardList></app-cards>
     <div class="pagination">
-      <mat-paginator [showFirstLastButtons]="true"
-                     [length]="total"
-                     [pageSize]="20"
-                     (page)="changePage($event)">
-      </mat-paginator>
+      <pagination-controls autoHide="true" responsive="true" maxSize="63" (pageChange)="getInfo($event)">
+        <ul style="display: none">
+          <li *ngFor="let item of collection | paginate: { itemsPerPage: 1,  currentPage: p}">{{page}}</li>
+        </ul>
+      </pagination-controls>
     </div>
     </div>
 </section>

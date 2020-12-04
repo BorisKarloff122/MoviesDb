@@ -2,48 +2,38 @@ import {Component, OnInit, Input} from '@angular/core';
 import {DataGetterService} from '../../services/data-getter.service';
 import {Dates} from '../../interfaces/dates';
 import {CardInterface} from '../../interfaces/cardInterface';
-import {MatPaginatorModule} from '@angular/material/paginator';
-// TODO пустая строка 1 шт
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-
-  constructor(
-    private dataGetter: DataGetterService,
-    private MatPaginatorIntl: MatPaginatorModule // TODO неиспользуемое удаляем
-  ) { }
-// TODO над конструктором объявление переменных
-  @Input() PageIndex; // TODO тип, доступность
-  cardList: Array<CardInterface>; // TODO доступность
+  @Input() private PageIndex: number;
+  public cardList: Array<CardInterface>;
   public dates: Dates;
-
-  public item: CardInterface;
   public page = +localStorage.getItem('page');
   public total: number;
+  public p = 1;
+  public collection: Array<any>;
 
-  getInfo(): void { // TODO приватный, публичный - какой?
-    this.dataGetter.requestInfo('ru-RU', 1).subscribe(response => {
+  constructor(
+    private dataGetter: DataGetterService
+  ) { }
+
+  public ngOnInit(): void{
+    this.getInfo(1);
+    this.collection = Array(63).fill(0).map((x, i) => ({ id: (i + 1), name: `Item ${i + 1}`}));
+  }
+
+  public getInfo(pageNumber): void {
+    this.p = pageNumber;
+    this.dataGetter.requestInfo('ru-RU', pageNumber).subscribe(response => {
       localStorage.setItem('page', response.page + '');
       this.dates = response.dates;
       this.cardList = response.results;
       this.total = response.total_results;
     });
-  } // TODO зачем столько пустых строк?
-
-
-  changePage(event): void { // TODO зачем столько пустых строк? доступность метода, тип переменной
-
-
-    this.dataGetter.requestInfo('ru-RU', event.pageIndex + 1).subscribe(response => { // TODO зачем повторять тот же код, что и в гетинфо?
-      localStorage.setItem('page', response.page + ''); // TODO не проще ли сделать изменение страницы и вызвать гетинфо передав ему новое значение страницы?
-      this.cardList = response.results;
-    });
   }
 
-  ngOnInit(): void{ // TODO после конструктора, а не в конце
-    this.getInfo();
-  }
 }

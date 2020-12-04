@@ -1,45 +1,66 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import {CardInterface} from '../../interfaces/cardInterface';
-import {DataGetterService} from '../../services/data-getter.service';
-// TODO зачем столько пустых строк? вьюха не соотвествует дизайну - внимательнее!!!
-
-
+import {LocalStorageService} from '../../services/local-storage.service';
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
-  // TODO до конструктора объявление переменных
+export class ModalComponent implements OnInit{
+  public disabler1 = false;
+  public disabler2 = false;
+  public isFav = false;
+  public favList: CardInterface[] = [];
+  @Input() public row: CardInterface;
+  @Input() public open: boolean; // true
+  @Input() public cardList: CardInterface[];
+  @Output() openingKey = new EventEmitter<string>();
+
   constructor(
-    private dataGetter: DataGetterService
+      private favorites: LocalStorageService
   ){ }
-  @Input() row: CardInterface;
-  @Input() open: boolean; // true
-  public disabler1: boolean;
-  public disabler2: boolean;
-  public swapMovie(direction: number): void{ // TODO отделяй методы - не лепи в одну кучу - я уже устала делать по этому поводу замечания.
-    const page = +localStorage.getItem('page'); // TODO В следующий раз даже смотреть не буду и сразу на переделку отправлю
-    this.dataGetter.requestInfo('ru-RU', page).subscribe(response => { // TODO мне не нравиться эта реализация метода
-      // TODO получаеться сначала ты делаешь при открытии запрос для одного, а потом запрашиваешь каждый раз все
-          const itemIndex = response.results.indexOf(response.results.find((entry) => entry.id === this.row.id));
-          if (itemIndex + direction < 0 || itemIndex + direction > 20){
-            return;
-          }
-          else{
-            this.disabler1 = false;
-            this.disabler2 = false;
-            this.row = response.results[itemIndex + direction];
-          }
-      });
+
+  public ngOnInit(): void{
+    this.checkIndex();
+    this.checkFav();
+  }
+
+  public checkFav(): void {
+    this.favList = this.favorites.getFavorites(); // not ready
+  }
+
+  public checkIndex(): void{
+    const itemIndex = this.cardList.indexOf(this.cardList.find((entry) => entry.id === this.row.id));
+    if (itemIndex === 0){
+      this.disabler2 = true;
+    }
+    else if (itemIndex === 19) {
+      this.disabler1 = true;
+    }
+    else{
+      this.disabler1 = false;
+      this.disabler2 = false;
+    }
+  }
+
+  public swapMovie(direction: number): void{
+    const itemIndex = this.cardList.indexOf(this.cardList.find((entry) => entry.id === this.row.id));
+
+    if (itemIndex + direction < 0 || itemIndex + direction > 20){
+      this.checkIndex();
+      return;
+    }
+    else{
+      this.checkIndex();
+      this.disabler1 = false;
+      this.disabler2 = false;
+      this.row = this.cardList[itemIndex + direction];
+    }
   }
 
   public killModal(): void{
+    this.checkIndex();
+    this.openingKey.emit();
     this.open = !this.open;
-    document.getElementsByClassName('modal')[0].classList.remove('open');
   }
-  ngOnInit(): void { // TODO это после конструктора, а не внизу
-    this.open = !this.open; // TODO не поняла к чему это тут? почему тогда не указано дефолтное значение при объявлении переменной
-  }
-
 }

@@ -6,15 +6,18 @@
       <div class="date">{{item.release_date}}</div>
     </div>
     <div *ngIf="item.poster_path !== null; else dummy" class="img_block" >
-      <img  src="http://image.tmdb.org/t/p/w342{{item.poster_path}}">
+      <img alt="" src="http://image.tmdb.org/t/p/w342{{item.poster_path}}">
     </div>
   </div>
 <ng-template #dummy>
-  <img src="assets/img/dummy.jpg">
+  <img alt="" src="assets/img/dummy.jpg">
 </ng-template>
 </div>
 <app-modal *ngIf="row"
-           [row] = row ></app-modal>
+           [row] = row
+           [open] = open
+           [cardList] = cardList
+           (openingKey)="openingKey()"></app-modal>
 
 
 
