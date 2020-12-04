@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {CardInterface} from '../interfaces/cardInterface';
+import { CardInterface } from '../interfaces/cardInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class LocalStorageService {
     if (localStorage.getItem('favs') === null){
       return this.favorites;
     }
-    else{
+    else {
       this.favorites = JSON.parse(localStorage.getItem('favs'));
       return this.favorites;
     }

@@ -1,13 +1,14 @@
 import {Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import {CardInterface} from '../../interfaces/cardInterface';
 import {LocalStorageService} from '../../services/local-storage.service';
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit{
-  public disabler1 = false;
+  public disabler1 = false; // TODO type
   public disabler2 = false;
   public isFav = false;
   public favList: CardInterface[] = [];
@@ -17,7 +18,7 @@ export class ModalComponent implements OnInit{
   @Output() openingKey = new EventEmitter<string>();
 
   constructor(
-      private favorites: LocalStorageService
+      private favorites: LocalStorageService // ?
   ){ }
 
   public ngOnInit(): void{
@@ -50,7 +51,7 @@ export class ModalComponent implements OnInit{
       this.checkIndex();
       return;
     }
-    else{
+    else {
       this.checkIndex();
       this.disabler1 = false;
       this.disabler2 = false;

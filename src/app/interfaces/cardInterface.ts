@@ -1,6 +1,6 @@
 export interface CardInterface {
   title: string;
-  adult: false;
+  adult: false; // TODO type
   genre_ids: Array<number>;
   original_language: string;
   popularity: number;
@@ -14,4 +14,3 @@ export interface CardInterface {
   overview?: string;
   vote_average: number;
 }
-
