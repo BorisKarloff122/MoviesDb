@@ -15,7 +15,7 @@ export class ModalComponent implements OnInit, OnChanges{
   @Input() public row: CardInterface;
   @Input() public open: boolean;
   @Input() public cardList: CardInterface[];
-  @Output() openingKey = new EventEmitter<string>();
+  @Output() public openingKey = new EventEmitter<string>();
 
   constructor(
       private favorites: LocalStorageService
@@ -39,7 +39,6 @@ export class ModalComponent implements OnInit, OnChanges{
     else{
       this.favorites.removeFavorite(this.row);
     }
-
   }
 
   public checkFav(row: CardInterface): void {
@@ -51,12 +50,10 @@ export class ModalComponent implements OnInit, OnChanges{
       this.isFav = false;
       return;
     }
-
   }
 
   public checkIndex(): void{
     const itemIndex = this.cardList.indexOf(this.cardList.find((entry) => entry.id === this.row.id));
-
     if (itemIndex === 0){
       this.disabler2 = true;
     }
@@ -72,16 +69,15 @@ export class ModalComponent implements OnInit, OnChanges{
   public swapMovie(direction: number): void{
     const itemIndex = this.cardList.indexOf(this.cardList.find((entry) => entry.id === this.row.id));
     if (itemIndex + direction < 0 || itemIndex + direction > 20){
-      this.checkIndex();
       return;
     }
     else {
-      this.checkIndex();
       this.disabler1 = false;
       this.disabler2 = false;
       this.row = this.cardList[itemIndex + direction];
       this.checkFav(this.row);
     }
+    this.checkIndex();
   }
 
     public killModal(): void{

@@ -16,7 +16,7 @@ a{
   justify-content: center;
 }
 header, footer {
-  background-color: #c1bbbb;
+  background-color:#474d59;
 }
 body {
   margin: 0;
@@ -31,6 +31,8 @@ body {
   -ms-transition: 0.4s;
   -o-transition-duration: 0.4s;
 }
+
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

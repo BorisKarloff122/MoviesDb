@@ -9,7 +9,6 @@ import {DataGetterService} from '../../services/data-getter.service';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent{
-
   public row: CardInterface;
   public open: boolean = false;
   @Input() public cardList: CardInterface[];

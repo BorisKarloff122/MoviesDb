@@ -3,12 +3,12 @@ section.info .header {
 }
 
 .top_block {
-  position: fixed;
+
   left: 0;
   top: 0;
   width: 100%;
+  padding:15px 0;
   z-index: 100;
-  box-shadow: 4px 5px 7px 1px rgba(0,0,0,0.4);
 }
 .info .header{
   margin:50px auto;
@@ -20,7 +20,7 @@ section.info .header {
 }
 
 .logo img{
-  max-width:80px;
+  max-width:115px;
 }
 header .container{
   display: flex;flex-flow:row nowrap;
@@ -28,25 +28,39 @@ header .container{
   justify-content: space-between;
 }
 
+.descriptor{
+  font-weight:bold;
+  margin-left:10px;
+  font-size:23px;
+}
+header .toAccount, footer .toAccount:hover{
+
+}
 header .toAccount, footer .toAccount {
-  font-weight: lighter;
-  color: #444;
-  background-color:#eeeeee;
-  border:1px solid #6e6e6e;
+  font-weight: bold;
+  background-position: 85% center;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-size: 15px;
+  background-image: url(../../../assets/img/down.png);
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
   box-shadow: 4px 4px 3px 0 rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 16px;
-  height: 35px;
-  max-width: 200px;
+  height: 45px;
+  max-width: 150px;
   z-index: 1;
   width: 100%;
   position: relative;
   cursor: pointer;
 }
+
 
 @media(max-width:450px){
   .logo .descriptor{

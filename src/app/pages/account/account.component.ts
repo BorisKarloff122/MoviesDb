@@ -8,9 +8,11 @@ import {LocalStorageService} from '../../services/local-storage.service';
 })
 export class AccountComponent {
   public favItems = this.favorites.getFavorites();
-  constructor(
+
+  public constructor(
     private favorites: LocalStorageService
   ) {}
+
   public removeFav(item): void{
     this.favorites.removeFavorite(item);
   }

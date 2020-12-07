@@ -5,9 +5,10 @@ import { CardInterface } from '../interfaces/cardInterface';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  public favorites: Array<CardInterface> = JSON.parse(localStorage.getItem('favs'));
+  public favorites: CardInterface[] = JSON.parse(localStorage.getItem('favs'));
 
-  constructor(){}
+  public constructor(
+  ){}
 
   public getFavorites(): Array<CardInterface>{
     if (localStorage.getItem('favs') === null){

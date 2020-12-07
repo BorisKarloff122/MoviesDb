@@ -8,8 +8,8 @@ import { Results } from '../../interfaces/results';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  public page = +localStorage.getItem('page');
-  public startPage = 1;
+  public page: number = +localStorage.getItem('page');
+  public startPage: number = 1;
   public moviesResults: Results;
   public collection: Array<any>;
 

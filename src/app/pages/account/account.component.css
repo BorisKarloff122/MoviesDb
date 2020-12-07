@@ -13,7 +13,11 @@
   min-height:860px;
 }
 
-
+.top_block{
+  display: flex;
+  flex-flow:row-reverse nowrap;
+  justify-content:space-between;
+}
 
 
 .fav{
@@ -26,10 +30,10 @@
 .fav_left{
   padding: 15px 15px 15px 30px;
   height: 100%;
-  background-color: rgba(110,110,110,0.25);
+
   color: #444;
   width:100%;
-  box-shadow: 2px 3px 8px 1px rgba(0,0,0,0.4);
+
 }
 
 .favItems{
@@ -53,16 +57,19 @@
 
 .name{
   font-weight:bold;
-  font-size:20px;
+  font-size:25px;
   margin-bottom:10px
 
 }
 .date{
   margin-bottom:15px;
+  font-size:22px;
 }
 
 .overview{
   padding-bottom:100px;
+  font-size:20px;
+  line-height:22px;
 }
 .empty_block{
   height:600px;
@@ -77,36 +84,16 @@
   margin:0 auto;
 }
 
-.unfav_button,
-.modal_container .fav_button {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  position: relative;
-  background-size: 100% auto;
-  background-image: url('src/assets/img/fav.png');
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.unfav_button:before,
-.modal_container .fav_button:before {
-  width: 30px;
-  height: 30px;
-  font-size: 20px;
-  color: #000;
-  border-radius: 360px;
-  background-color: #fff;
-  content: '+';
-  position: absolute;
-  right: -10px;
-  top: 23px;
+.unfav_button{
+  width:200px;
+  height:45px;
+  border: 2px solid #444;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight:bold;
 }
-.unfav_button:before,
-.modal_container .fav_button:hover:before,
-.modal_container .added:before {
-  content: '\2713' !important;
-}
+
+

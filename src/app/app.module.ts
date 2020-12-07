@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { DataGetterService } from './services/data-getter.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbModule
   ],
   providers: [DataGetterService],
   bootstrap: [AppComponent]

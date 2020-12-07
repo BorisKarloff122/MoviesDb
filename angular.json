@@ -25,6 +25,7 @@
               "src/assets/img"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
@@ -124,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "moviedb-app"
+  "defaultProject": "moviedb-app",
+  "cli": {
+    "analytics": "bd68b6de-b175-434b-abe6-6748348be701"
+  }
 }

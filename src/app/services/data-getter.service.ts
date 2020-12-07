@@ -8,7 +8,6 @@ import {CardInterface} from '../interfaces/cardInterface';
   providedIn: 'root'
 })
 export class DataGetterService {
-
   private baseURLAddress = 'https://api.themoviedb.org/3/movie/now_playing';
   private idPath = 'https://api.themoviedb.org/3/movie/';
   private key = 'ebea8cfca72fdff8d2624ad7bbf78e4c';

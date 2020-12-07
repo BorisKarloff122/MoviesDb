@@ -1,6 +1,6 @@
 <app-main-header></app-main-header>
 <div class="container">
-<div *ngIf = 'favItems.length !== 0; else empty' class="favItems">
+<div *ngIf = 'favItems && favItems.length !== 0; else empty' class="favItems">
   <div *ngFor="let item of favItems" class="fav">
     <div class="fav_right">
       <div *ngIf="item.poster_path !== null; else dummy" class="img_block" >
@@ -8,16 +8,19 @@
       </div>
     </div>
     <div class="fav_left">
-      <div class="unfav_button" (click) = "removeFav(item)"></div>
-      <div class="text">
-        <div class="name">{{item.original_title}}</div>
-        <div class='date'>{{item.release_date}}</div>
+      <div class="top_block">
+       <div class="unfav_button" (click) = "removeFav(item)">Remove From Favorites</div>
+        <div class="text">
+          <div class="name">{{item.original_title}}</div>
+          <div class='date'>{{item.release_date}}</div>
+        </div>
       </div>
-      <div class='overview'>{{item.overview}}</div></div>
+        <div class='overview'>{{item.overview}}</div></div>
   </div>
 </div>
 </div>
-<app-footer></app-footer>
+
+
 <ng-template #empty>
   <div class="empty_block">No favorite Items</div>
 </ng-template>
