@@ -11,7 +11,7 @@ import {DataGetterService} from '../../services/data-getter.service';
 export class CardsComponent{
 
   public row: CardInterface;
-  public open = false; // TODO type
+  public open: boolean = false;
   @Input() public cardList: CardInterface[];
 
   public constructor(
@@ -22,9 +22,8 @@ export class CardsComponent{
     this.open = false;
   }
 
-  public openModal(id): void {
-    console.log(this.cardList);
-    this.dataGetter.getAMovie(id, 'ru-RU').subscribe(response => { // TODO type
+  public openModal(id: number): void {
+    this.dataGetter.getAMovie(id, 'ru-RU').subscribe((response: CardInterface) => {
         this.row = response;
         this.open = !this.open;
     });

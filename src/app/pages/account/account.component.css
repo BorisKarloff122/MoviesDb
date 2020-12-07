@@ -1,0 +1,112 @@
+.fav .text{
+  position:relative;
+  left:0;
+  top:0;
+  margin:0;
+  z-index:2;
+  opacity: 1;
+  color:#444;
+}
+
+.favItems{
+  margin:20px auto;
+  min-height:860px;
+}
+
+
+
+
+.fav{
+  display:flex;
+  width:100%;
+  align-items: flex-start;
+  margin-bottom:20px;
+  justify-content: center;
+}
+.fav_left{
+  padding: 15px 15px 15px 30px;
+  height: 100%;
+  background-color: rgba(110,110,110,0.25);
+  color: #444;
+  width:100%;
+  box-shadow: 2px 3px 8px 1px rgba(0,0,0,0.4);
+}
+
+.favItems{
+  margin:20px auto;
+  min-height:860px;
+}
+
+
+.acc_header{
+  font-weight:bolder;
+  font-size:22px;
+}
+.container{
+  min-height:600px;
+  padding-top:100px;
+}
+.unfav_button{
+  margin-bottom:20px;
+}
+
+
+.name{
+  font-weight:bold;
+  font-size:20px;
+  margin-bottom:10px
+
+}
+.date{
+  margin-bottom:15px;
+}
+
+.overview{
+  padding-bottom:100px;
+}
+.empty_block{
+  height:600px;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.favItems{
+  min-height:500px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.unfav_button,
+.modal_container .fav_button {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  position: relative;
+  background-size: 100% auto;
+  background-image: url('src/assets/img/fav.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.unfav_button:before,
+.modal_container .fav_button:before {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  color: #000;
+  border-radius: 360px;
+  background-color: #fff;
+  content: '+';
+  position: absolute;
+  right: -10px;
+  top: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.unfav_button:before,
+.modal_container .fav_button:hover:before,
+.modal_container .added:before {
+  content: '\2713' !important;
+}

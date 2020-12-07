@@ -1,12 +1,12 @@
 <app-main-header></app-main-header>
 <section class="info">
   <div class="container">
-    <div *ngIf="dates" class="header">Latest Releases: <span class='dates'>{{moviesResults?.dates.minimum | date}} - {{moviesResults?.dates.maximum | date}}</span></div>
+    <div class="header">Latest Releases: <span class='dates'>{{moviesResults?.dates.minimum | date}} - {{moviesResults?.dates.maximum | date}}</span></div>
     <app-cards *ngIf="moviesResults?.results" [cardList] = moviesResults.results></app-cards>
     <div class="pagination">
-      <pagination-controls autoHide="true" responsive="true" maxSize="63" (pageChange)="getInfo($event)">
+      <pagination-controls autoHide="true" responsive="true" maxSize="{{moviesResults?.total_pages}}" (pageChange)="getInfo($event)">
         <ul style="display: none">
-          <li *ngFor="let item of collection | paginate: { itemsPerPage: 1,  currentPage: p}">{{page}}</li>
+          <li *ngFor="let item of collection | paginate: { itemsPerPage: 1,  currentPage: startPage}">{{page}}</li>
         </ul>
       </pagination-controls>
     </div>

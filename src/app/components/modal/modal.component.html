@@ -1,4 +1,4 @@
-<div class ="modal movie_modal"  [ngClass]="open === true ? 'open' : ''"  >
+<div class ="modal movie_modal" [ngClass]="open === true ? 'open' : ''"  >
   <div class="backposter" style="background-image: url(http://image.tmdb.org/t/p/w342{{row.poster_path}});"></div>
   <div class="modal_container">
     <div class="ex close_modal" (click)="killModal()">
@@ -14,11 +14,10 @@
           <div class="next_movie" [ngClass] = "disabler1 === true ? 'disabled': ''" (click)="swapMovie(1)">Next</div>
           <div class="prev_movie" [ngClass] = "disabler2 === true ? 'disabled': ''" (click)="swapMovie(-1)">Prev</div>
         </div>
-        <div class="fav_button"></div>
+        <div [ngClass]="isFav === true? 'unfav_button':'fav_button'" (click)="addToFav()"></div>
       </div>
       <div class="ratings info_block">
         <div class="sub_info score">Score: <span class="scores">{{row.vote_average}}</span></div>
-
         <div class="sub_info release">Release Date:<span class="date">{{row.release_date}}</span></div>
       </div>
       <div class="center movie_text">
@@ -28,6 +27,5 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>

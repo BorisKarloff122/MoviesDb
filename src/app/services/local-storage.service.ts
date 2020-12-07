@@ -5,9 +5,9 @@ import { CardInterface } from '../interfaces/cardInterface';
   providedIn: 'root'
 })
 export class LocalStorageService {
-  public favorites: Array<CardInterface> = [];
+  public favorites: Array<CardInterface> = JSON.parse(localStorage.getItem('favs'));
 
-  constructor() { }
+  constructor(){}
 
   public getFavorites(): Array<CardInterface>{
     if (localStorage.getItem('favs') === null){
@@ -19,5 +19,25 @@ export class LocalStorageService {
     }
   }
 
+  public setFavorites(item: CardInterface): void {
+    if (this.favorites !== null){
+      this.favorites.push(item);
+      this.setFavoriteItems(this.favorites);
+    }
+    else{
+      this.favorites = [];
+      this.favorites.push(item);
+      this.setFavoriteItems(this.favorites);
+    }
+  }
+
+  public removeFavorite(item): void {
+    this.favorites.splice(this.favorites.indexOf(item), 1);
+    this.setFavoriteItems(this.favorites);
+  }
+
+  public setFavoriteItems(favorites): void{
+    localStorage.setItem('favs', JSON.stringify(favorites));
+  }
 
 }

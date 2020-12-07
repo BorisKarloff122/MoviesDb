@@ -10,6 +10,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { DataGetterService } from './services/data-getter.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -23,7 +24,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CardsComponent,
     AccountComponent,
     ModalComponent,
-
   ],
   imports: [
     BrowserModule,

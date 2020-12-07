@@ -13,3 +13,10 @@ section.info {
 .header{
   margin-bottom:50px;
 }
+
+@media(max-width:450px){
+  .header{
+    text-align: center;
+  }
+
+}

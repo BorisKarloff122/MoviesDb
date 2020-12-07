@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-main-header',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainHeaderComponent implements OnInit {
 
-  constructor() { }
 
+  public linkerText: string = 'Favorites';
+  public link: string = '';
+  constructor(
+    private router: Router
+  ){ }
+  checkRouterLink(): void{
+      if (this.router.url === '/account'){
+        this.linkerText = 'Go Back To Main';
+
+      }
+      else{
+        this.linkerText = 'Favorites';
+        this.link = '/account';
+      }
+  }
   ngOnInit(): void {
+    this.checkRouterLink();
   }
 
 }

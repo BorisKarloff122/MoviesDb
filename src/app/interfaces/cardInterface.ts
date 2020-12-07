@@ -1,6 +1,6 @@
 export interface CardInterface {
   title: string;
-  adult: false; // TODO type
+  adult: boolean;
   genre_ids: Array<number>;
   original_language: string;
   popularity: number;
