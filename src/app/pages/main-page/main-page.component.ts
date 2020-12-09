@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataGetterService} from '../../services/data-getter.service';
 import { Results } from '../../interfaces/results';
-
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -14,8 +14,17 @@ export class MainPageComponent implements OnInit {
   public collection: Array<any>;
 
   constructor(
-    private dataGetter: DataGetterService
-  ) { }
+    private dataGetter: DataGetterService,
+    private title: Title,
+    private meta: Meta
+  ) {
+    title.setTitle('MovieDB app Main Page'),
+    meta.addTags([
+      {name: 'keywords', content: 'MovieDB, movies, awsooooome' },
+      {name: 'description', content: 'MovieDB page for movie sets' },
+      {name: 'author', content: 'IgorAlexeenko'}
+    ]);
+  }
 
   public ngOnInit(): void{
     this.getInfo(1);
