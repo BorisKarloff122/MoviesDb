@@ -1,9 +1,16 @@
 <header style="" class="top_block">
   <div class="container">
-    <a [routerLink]="['']" class="logo">
+    <a class="logo">
       <img alt="logo-image" src="/assets/img/logo.png">
       <span class="descriptor">Movies</span>
     </a>
-    <a [routerLink]="[link]" class='toAccount'>{{linkerText}}</a>
+    <button class='toAccount' [matMenuTriggerFor]="menu">Menu
+      <mat-menu #menu>
+        <a mat-menu-item href="/account">Account</a>
+        <a mat-menu-item href="/">Main Page</a>
+      </mat-menu>
+    </button>
+
+
   </div>
 </header>

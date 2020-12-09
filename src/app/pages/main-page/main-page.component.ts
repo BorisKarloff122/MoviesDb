@@ -27,6 +27,7 @@ export class MainPageComponent implements OnInit {
       localStorage.setItem('page', response.page.toString());
       this.moviesResults = response;
       this.collection = Array(this.moviesResults.total_pages).fill(0).map((x, i) => ({ id: (i + 1), name: i + 1}));
+      console.log(response.results);
     });
   }
 

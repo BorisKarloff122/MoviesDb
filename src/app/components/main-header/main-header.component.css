@@ -2,8 +2,11 @@ section.info .header {
   margin-bottom: 20px;
 }
 
-.top_block {
+button{
+  outline: none;
+}
 
+.top_block {
   left: 0;
   top: 0;
   width: 100%;
@@ -19,9 +22,10 @@ section.info .header {
   color:#fff;
 }
 
-.logo img{
-  max-width:115px;
+.logo img {
+  max-width: 85px;
 }
+
 header .container{
   display: flex;flex-flow:row nowrap;
   align-items: center;

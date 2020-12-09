@@ -10,7 +10,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { ModalComponent } from './components/modal/modal.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
 import { DataGetterService } from './services/data-getter.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -31,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatMenuModule,
     MatPaginatorModule,
     NgxPaginationModule,
     NgbModule

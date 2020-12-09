@@ -18,8 +18,26 @@ section.info {
   margin-bottom:20px;
 }
 
+.pagination ::ng-deep .disabled{
+  padding:13px 20px!important;
+}
+.pagination ::ng-deep .ngx-pagination li{
+  border:1px solid;
+  font-weight:bold;
+  padding:10px;
+  margin: 0 -1px
+}
+.pagination ::ng-deep .ngx-pagination li:hover,
+.pagination ::ng-deep .ngx-pagination .current {
+  background: transparent;
+  color:green;
 
+}
+.pagination ::ng-deep .ngx-pagination .current{
+  padding:13px 20px;
+}
 .pagination{
+  margin-top:20px;
   display: flex;
   align-self: center;
   justify-content: center;

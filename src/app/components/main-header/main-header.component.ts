@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
   templateUrl: './main-header.component.html',
   styleUrls: ['./main-header.component.css']
 })
+
 export class MainHeaderComponent implements OnInit {
   public linkerText: string = 'My account';
   public link: string = '';
@@ -13,6 +14,7 @@ export class MainHeaderComponent implements OnInit {
   public constructor(
     private router: Router
   ){}
+
 
   ngOnInit(): void {
     this.checkRouterLink();
